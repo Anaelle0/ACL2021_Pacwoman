@@ -1,0 +1,24 @@
+Idée globale du Sprint 1:
+Une personnage se déplace dans une salle (labyrinthe) et doit récupérer une objet pour pouvoir arriver au point final et gagner en un temps imparti 
+
+Backlog pour le S1: 
+
+Personnage qui se déplace : 
+Tâche 1: (haut/bas/gauche/droite)  
+Tâche 2: Interaction avec le labyrinthe (pas possible de traverser les murs)
+
+
+Faire une salle à partir d'un fichier txt: 
+Tâche 1: Murs tout autour  
+Tâche 2: Obstacles dans la salle (labyrinthe)
+
+
+Cases spéciales:
+Tâche 1: Un point "arrivée" pour valider la fin de la partie
+Tâche 2: Une case "clé" permettant d'activer la case "arrivée". On ne peut pas finir le jeu sans récupérer la clé
+
+
+Timer:
+Tâche 1: Mise en place d'un timer
+Tâche 2: Limite de temps pour finir la partie
+
