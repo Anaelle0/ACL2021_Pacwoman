@@ -25,7 +25,6 @@ public class Hero {
 		case IDLE:
 			break;
 		}
-		// j'ai modifié
 	}
 	
 	public int[] computePos(int abscisse, int ordonnee) {
