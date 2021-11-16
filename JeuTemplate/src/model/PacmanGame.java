@@ -7,6 +7,7 @@ import java.io.IOException;
 import engine.Cmd;
 import engine.Game;
 
+import java.time.Instant;
 /**
  * @author Horatiu Cirstea, Vincent Thomas
  *
@@ -20,6 +21,10 @@ public class PacmanGame implements Game {
 	 * constructeur avec fichier source pour le help
 	 * 
 	 */
+	private int NombreCle=0;
+	private static Instant TempsDepart=Instant.now();
+	private static long TempsMax=2000; //C'est en nano secondes
+	
 	public PacmanGame(String source) {
 		BufferedReader helpReader;
 		try {
@@ -68,7 +73,24 @@ public class PacmanGame implements Game {
 	@Override
 	public void ajoutCle() {
 		// TODO Auto-generated method stub
-		
+		if (Case.VerifCle==True) {
+			NombreCle+=1;
+		}
 	}
-
+	public static long GetTime() {
+		Instant TempsEcoule= Instant.now();
+		long TempsEcouleconverti = TempsEcoule.toEpochMilli();
+		long TempsDepartconverti = TempsDepart.toEpochMilli();
+		return (TempsEcouleconverti-TempsDepartconverti);
+	}
+	
+	public static boolean OkTime() {
+		if (GetTime()<=TempsMax){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 }
