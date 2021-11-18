@@ -7,19 +7,10 @@ import java.io.IOException;
 import engine.Cmd;
 import engine.Game;
 
-/**
- * @author Horatiu Cirstea, Vincent Thomas
- *
- *         Version avec personnage qui peut se deplacer. A completer dans les
- *         versions suivantes.
- * 
- */
+//Version avec personnage qui peut se deplacer. A completer dans les versions suivantes.
 public class PacmanGame implements Game {
 
-	/**
-	 * constructeur avec fichier source pour le help
-	 * 
-	 */
+	//constructeur avec fichier source pour le help
 	public PacmanGame(String source) {
 		BufferedReader helpReader;
 		try {
@@ -34,21 +25,27 @@ public class PacmanGame implements Game {
 		}
 	}
 
-	/**
-	 * faire evoluer le jeu suite a une commande
-	 * 
-	 * @param commande
-	 */
+	//faire evoluer le jeu suite a une commande @param commande
 	@Override
 	public void evolve(Cmd commande) {
 		System.out.println("Execute "+commande);
 	}
+	
+	public void check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupée par un mur
+		
+	}
+	
+	public void possedeCle() {
+		
+	}
+	
+	public void ajoutCle() {
+		
+	}
 
-	/**
-	 * verifier si le jeu est fini
-	 */
+	//verifier si le jeu est fini
 	@Override
-	public boolean isFinished() {
+	public boolean finJeu() {
 		// le jeu n'est jamais fini
 		return false;
 	}

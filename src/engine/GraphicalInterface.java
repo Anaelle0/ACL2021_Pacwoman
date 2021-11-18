@@ -2,18 +2,10 @@ package engine;
 
 import javax.swing.JFrame;
 
-
-/**
- * @author Horatiu Cirstea, Vincent Thomas
- *
- * interface graphique avec son controller et son afficheur
- *
- */
+//interface graphique avec son controller et son afficheur
 public class GraphicalInterface  {
 
-	/**
-	 * le Panel pour l'afficheur
-	 */
+	//le Panel pour l'afficheur
 	private DrawingPanel panel;
 	
 	/**
@@ -40,9 +32,7 @@ public class GraphicalInterface  {
 		f.getContentPane().requestFocus();
 	}
 	
-	/**
-	 * mise a jour du dessin
-	 */
+	//mise a jour du dessin
 	public void paint() {
 		this.panel.drawGame();	
 	}

@@ -1,44 +1,27 @@
 package engine;
 
-/**
- * @author Horatiu Cirstea, Vincent Thomas
- *
- * moteur de game generique.
- * On lui passe un game et un afficheur et il permet d'executer un game.
- */
+//moteur de game generique. On lui passe un game et un afficheur et il permet d'executer un game.
 public class GameEngineGraphical {
 
-	/**
-	 * le game a executer
-	 */
+	//le game a executer
 	private Game game;
 
-	/**
-	 * l'afficheur a utiliser pour le rendu
-	 */
+	//l'afficheur a utiliser pour le rendu
 	private GamePainter gamePainter;
 
-	/**
-	 * le controlleur a utiliser pour recuperer les commandes
-	 */
+	//le controlleur a utiliser pour recuperer les commandes
 	private GameController gameController;
 
-	/**
-	 * l'interface graphique
-	 */
+	//l'interface graphique
 	private GraphicalInterface gui;
 
-	/**
-	 * construit un moteur
-	 * 
+	/** construit un moteur
 	 * @param game
 	 *            game a lancer
 	 * @param gamePainter
 	 *            afficheur a utiliser
 	 * @param gameController
-	 *            controlleur a utiliser
-	 *            
-	 */
+	 *            controlleur a utiliser   */
 	public GameEngineGraphical(Game game, GamePainter gamePainter, GameController gameController) {
 		// creation du game
 		this.game = game;
@@ -46,16 +29,14 @@ public class GameEngineGraphical {
 		this.gameController = gameController;
 	}
 
-	/**
-	 * permet de lancer le game
-	 */
+	//permet de lancer le game
 	public void run() throws InterruptedException {
 
 		// creation de l'interface graphique
 		this.gui = new GraphicalInterface(this.gamePainter,this.gameController);
 
 		// boucle de game
-		while (!this.game.isFinished()) {
+		while (!this.game.finJeu()) {
 			// demande controle utilisateur
 			Cmd c = this.gameController.getCommand();
 			// fait evoluer le game
