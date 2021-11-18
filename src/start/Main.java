@@ -5,9 +5,7 @@ import engine.GameEngineGraphical;
 import model.PacmanController;
 import model.PacmanGame;
 
-/**
- * lancement du moteur avec le jeu
- */
+//lancement du moteur avec le jeu
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -21,5 +19,4 @@ public class Main {
 		GameEngineGraphical engine = new GameEngineGraphical(game, painter, controller);
 		engine.run();
 	}
-
 }
