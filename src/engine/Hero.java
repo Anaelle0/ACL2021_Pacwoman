@@ -17,7 +17,6 @@ import model.PacmanPainter;
 public class Hero {
 	private static int abscisse=1;
 	private static int ordonnee=1;
-	// private static int[] position = new int[] {abscisse,ordonnee}; // inutile pour l'instant
 
 	public static void move(Cmd commande) {
 		switch (commande) {
