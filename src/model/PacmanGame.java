@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import engine.Cmd;
 import engine.Game;
+import engine.Hero;
+
 import java.time.Instant;
 
 //Version avec personnage qui peut se deplacer. A completer dans les versions suivantes.
@@ -34,10 +36,15 @@ public class PacmanGame implements Game {
 	@Override
 	public void evolve(Cmd commande) {
 		System.out.println("Execute "+commande);
+		System.out.println("Execute "+Hero.getAbscisse()+Hero.getOrdonnee());
+		Hero.move(commande);
 	}
 	
-	public void check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupï¿½e par un mur
-		
+	public static boolean check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupée par un mur
+		if (Integer.parseInt(PacmanPainter.labyrinthe[abscisse][ordonnee])==0) {
+			return true;
+		}
+		return false;
 	}
 	
 	public void possedeCle() {
@@ -62,11 +69,14 @@ public class PacmanGame implements Game {
 		if (Case.VerifCle==True) {
 			NombreCle+=1;
 		}
-	}
+	}						// à enlever: la clé du plateau
 	*/
 
 
 	//verifier si le jeu est fini
+
+	
+	
 	@Override
 	public boolean finJeu() {
 		// le jeu n'est jamais fini
