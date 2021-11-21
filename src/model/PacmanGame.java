@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import engine.Case;
 import engine.Cmd;
 import engine.Game;
 import engine.Hero;
@@ -41,15 +42,19 @@ public class PacmanGame implements Game {
 	}
 	
 	public static boolean check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupée par un mur
-		if (Integer.parseInt(PacmanPainter.labyrinthe[abscisse][ordonnee])==0) {
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==0) {
 			return true;
 		}
 		return false;
 	}
 	
-	public void possedeCle() {
-		
+	public boolean possedeCle() {
+		if (NombreCle!=0) {
+			return true;
+		}
+		return false;
 	}
+	
 	public static long GetTime() {
 		Instant TempsEcoule= Instant.now();
 		long TempsEcouleconverti = TempsEcoule.toEpochMilli();
@@ -64,9 +69,10 @@ public class PacmanGame implements Game {
 			return false;
 		}
 	}
+	
 	/*
-	public void AjoutCle() {
-		if (Case.VerifCle==True) {
+	public void AjoutCle(int x, int y) {		// pas utile finalement: mis dans finJeu
+		if (Case.verifCle(x,y)==true) {
 			NombreCle+=1;
 		}
 	}						// à enlever: la clé du plateau
@@ -74,13 +80,24 @@ public class PacmanGame implements Game {
 
 
 	//verifier si le jeu est fini
-
-	
 	
 	@Override
 	public boolean finJeu() {
-		// le jeu n'est jamais fini
+		/*
+		while(OkTime()) {
+			if(possedeCle()) {
+				if(Case.verifArrivee(Hero.getAbscisse(),Hero.getOrdonnee())) {
+					System.out.println("Le jeu est gagné!");	// à afficher en grand sur le painter
+					return true;								// il faut arrêter le jeu
+				}
+			}
+			if(Case.verifCle(Hero.getAbscisse(),Hero.getOrdonnee())) {
+				NombreCle+=1;
+			}
+		}
+		System.out.println("Le temps est écoulé, partie perdue!");
+		*/
 		return false;
 	}
-
+	
 }
