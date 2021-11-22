@@ -73,6 +73,7 @@ public class PacmanPainter implements GamePainter {
 			System.out.println("Help not available");
 		}
 		
+		//On affiche la position dès qu'elle change
 		crayon.setColor(Color.pink);
 		crayon.fillOval((400*Hero.getAbscisse())/20,(400*Hero.getOrdonnee())/20,400/20,400/20);
 		
