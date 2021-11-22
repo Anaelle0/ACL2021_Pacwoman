@@ -15,7 +15,5 @@ public interface GamePainter {
 	public abstract int getWidth();
 
 	public abstract int getHeight();
-
-	void draw(BufferedImage im);
 	
 }

@@ -13,9 +13,10 @@ import java.time.Instant;
 
 //Version avec personnage qui peut se deplacer. A completer dans les versions suivantes.
 public class PacmanGame implements Game {
-	private int NombreCle=0;
-	private static Instant TempsDepart=Instant.now();
-	private static long TempsMax=2000; //C'est en nano secondes
+	private static int NombreCle=0;
+	private static long tempsDepart = System.currentTimeMillis();
+	//private static Instant TempsDepart=Instant.now();
+	private static long TempsMax= 20000; //C'est en milisecondes donc ici on dispose de 20s pour finir le jeu
 	
 
 	//constructeur avec fichier source pour le help
@@ -32,6 +33,8 @@ public class PacmanGame implements Game {
 			System.out.println("Help not available");
 		}
 	}
+	//Boolean signifiant la fin du jeu
+	static boolean finJeu = false;
 
 	//faire evoluer le jeu suite a une commande @param commande
 	@Override
@@ -41,9 +44,9 @@ public class PacmanGame implements Game {
 		Hero.move(commande);
 	}
 	
-	public static boolean check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupée par un mur
-		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==0) {
-			return true;
+	public static boolean check(int abscisse,int ordonnee) {	// checker si la case n'est pas occupï¿½e par un mur
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])!=1) {  //Si ce n'est pas un mur
+			return true;  
 		}
 		return false;
 	}
@@ -54,8 +57,29 @@ public class PacmanGame implements Game {
 		}
 		return false;
 	}
-	
-	public static long GetTime() {
+
+	public static void AjoutCle(int abscisse, int ordonnee) {
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==4) {
+			NombreCle = NombreCle + 1;
+			System.out.println("Vous avez une clÃ©");
+
+		}
+	}
+	public static boolean getTime(){
+		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
+		if (tempsEcoule > TempsMax) {
+			finJeu = true; //On a dÃ©passÃ© le temps maximal autorisÃ© donc on a perdu
+			System.out.print("Partie perdue: temps dÃ©passÃ©");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	//TIMER DE ELOISE QUE JE N'AI PAS SU FAIRE BIEN FONCITONNER
+
+	/* public static long GetTime() {
 		Instant TempsEcoule= Instant.now();
 		long TempsEcouleconverti = TempsEcoule.toEpochMilli();
 		long TempsDepartconverti = TempsDepart.toEpochMilli();
@@ -66,37 +90,38 @@ public class PacmanGame implements Game {
 			return true;
 		}
 		else {
+			finJeu = true; //On a dÃ©passÃ© le temps maximal autorisÃ© donc on a perdu
+			System.out.print("Partie perdue: temps dÃ©passÃ©");
 			return false;
 		}
-	}
+	} */
 	
 	/*
 	public void AjoutCle(int x, int y) {		// pas utile finalement: mis dans finJeu
 		if (Case.verifCle(x,y)==true) {
 			NombreCle+=1;
 		}
-	}						// à enlever: la clé du plateau
+	}						// ï¿½ enlever: la clï¿½ du plateau
 	*/
 
 
-	//verifier si le jeu est fini
+	//verifier si le jeu est fini, c'est Ã  dire qu'on est sur la case arrivÃ©e avec au moins une clÃ©
 	
+	public static boolean verifArrivee (int abscisse, int ordonnee) {
+		
+		if (NombreCle>= 1 && Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==3){
+			System.out.println("Le jeu est gagnÃ©!");
+			finJeu = true;
+			return true;
+		}
+			return false;
+	}
+
 	@Override
 	public boolean finJeu() {
-		/*
-		while(OkTime()) {
-			if(possedeCle()) {
-				if(Case.verifArrivee(Hero.getAbscisse(),Hero.getOrdonnee())) {
-					System.out.println("Le jeu est gagné!");	// à afficher en grand sur le painter
-					return true;								// il faut arrêter le jeu
-				}
-			}
-			if(Case.verifCle(Hero.getAbscisse(),Hero.getOrdonnee())) {
-				NombreCle+=1;
-			}
+		if ( finJeu == true) {
+			return true;
 		}
-		System.out.println("Le temps est écoulé, partie perdue!");
-		*/
 		return false;
 	}
 	

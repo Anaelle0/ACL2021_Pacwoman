@@ -10,11 +10,12 @@ import java.awt.image.BufferedImage;
 
 
 import engine.GamePainter;
+import engine.Hero;
 
 //afficheur graphique pour le game
 
 public class PacmanPainter implements GamePainter {
-	//la taille de la fenêtre
+	//la taille de la fenï¿½tre
 	protected static final int WIDTH = 400;
 	protected static final int HEIGHT = 400;
 	static String[][] labyrinthe=new String[20][20]; // retient le labyrinthe dans un tableau
@@ -24,7 +25,7 @@ public class PacmanPainter implements GamePainter {
 	}
 
 	//methode  redefinie de Afficheur retourne une image du jeu
-	@Override	// override = fonction qui est déjà dans la classe mère
+	@Override	// override = fonction qui est dï¿½jï¿½ dans la classe mï¿½re
 	public void draw(BufferedImage im) { 
 		BufferedReader helpReader;
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
@@ -47,15 +48,15 @@ public class PacmanPainter implements GamePainter {
 							crayon.setColor(Color.lightGray);
 							crayon.fillPolygon(x,y,n);
 						}
-						if (res == 2){ //Départ
+						if (res == 2){ //Dï¿½part
 							crayon.setColor(Color.green);
 							crayon.fillPolygon(x,y,n);
 						}
-						if (res == 3){ //Arrivée
+						if (res == 3){ //Arrivï¿½e
 							crayon.setColor(Color.red);
 							crayon.fillPolygon(x,y,n);
 						}
-						if (res == 4){ //Case clé
+						if (res == 4){ //Case clï¿½
 							crayon.setColor(Color.ORANGE);
 							crayon.fillPolygon(x,y,n);
 						}
@@ -71,13 +72,30 @@ public class PacmanPainter implements GamePainter {
 		catch (IOException e) {
 			System.out.println("Help not available");
 		}
+		
 		crayon.setColor(Color.pink);
-		crayon.fillOval(getWidth()/20,getHeight()/20,getWidth()/20,getHeight()/20);
+		crayon.fillOval((400*Hero.getAbscisse())/20,(400*Hero.getOrdonnee())/20,400/20,400/20);
+		
+		
 	}
-	public static void drawPacman(int abscisse, int ordonnee){	// dessiner le pacman à chaque instant ou chaque fois qu'il bouge
-		//crayon.setColor(Color.pink);
+
+	
+
+
+/* 	public void drawPacman(BufferedImage im){	// dessiner le pacman ï¿½ chaque instant ou chaque fois qu'il bouge
+		boolean t = true;
+		
+		Graphics2D crayon = (Graphics2D) im.getGraphics();
+		crayon.setColor(Color.yellow);
+		crayon.fillOval(getWidth()/40,getHeight()/20,getWidth()/20,getHeight()/20);
+		while (t) {
+			crayon.setColor(Color.pink);
+			crayon.fillOval((400*Hero.getAbscisse())/20,(400*Hero.getOrdonnee())/20,400/20,400/20);
+		} */
+
+	//crayon.setColor(Color.pink);
 		//crayon.fillOval((400*abscisse)/20,(400*ordonnee)/20,400/20,400/20);
-	}
+	//}
 
 	public int getWidth() {
 		return WIDTH;
