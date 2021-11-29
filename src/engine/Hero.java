@@ -14,10 +14,11 @@ import java.awt.Graphics2D;
 import model.PacmanGame;
 import model.PacmanPainter;
 
-public class Hero {
+public class Hero extends Personnage{
 	private static int abscisse=1;
 	private static int ordonnee=1;
-
+	private static int nombredeVie=3;
+	/*
 	public static void move(Cmd commande) {
 		switch (commande) {
 			case LEFT:
@@ -37,24 +38,34 @@ public class Hero {
 
 	
 	public static void computePos(int x,int y) {
-		if(PacmanGame.check(x,y)) {
-			changePos(x,y);
+		if(PacmanGame.check(x,y) && nombredeVie>0) {
+			changePos(x,y);   //que ca dans monster
 			PacmanGame.AjoutCle(x, y); //On vérifie si on a bien ajouté une clé
 			PacmanGame.verifArrivee(x, y); //On vérifie si on esr à l'arrivée
 			PacmanGame.getTime(); //On vérifie si le temps n'est pas dépassé 
+			
 		}
-	}
 	
+	*/
+	public static int getPointdeVie() {
+		return nombredeVie;
+	}
+	/*
 	public static void changePos(int x,int y) {
 		abscisse=x;
 		ordonnee=y;
 		//PacmanPainter.drawPacman(x,y); // les coordonn�es changent maintenant il faut faire bouger le point sur le graphique
 	}
-
+	*/
+	public static void retireVie() {
+	}
+	
+	/*
 	public static int getAbscisse() {
 		return abscisse;
 	}
 	public static int getOrdonnee() {
 		return ordonnee;
 	}
+	*/
 }

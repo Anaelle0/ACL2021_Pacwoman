@@ -116,6 +116,14 @@ public class PacmanGame implements Game {
 		}
 			return false;
 	}
+	public static boolean verifMonster(int abscisseHeros, int ordonneeHeros,int abscisseMonster, int ordonneeMonster) {
+		// Ce programme permet de vérifier si le héros est sur la même case que le monstre, si oui il renvoie True
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseHeros][ordonneeHeros])==Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisseMonster][ordonneeMonster])){
+			Hero.retireVie();
+			return true;
+		}
+		return false;
+		}
 
 	@Override
 	public boolean finJeu() {
