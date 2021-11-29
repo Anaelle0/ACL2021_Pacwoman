@@ -19,10 +19,14 @@ Timer:
 Tâche 1: Mise en place d'un timer
 Tâche 2: Limite de temps pour finir la partie
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Remarque du sprint précédent: 
+* mieux répartir le travail
+* ajouter beaucoup de commentaires pour aider les autres à comprendre ce qu'on fait
+* problèmes d'utilisation de github
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Idée globale du Sprint 2:
-
 
 Backlog pour le S2:
 
@@ -42,18 +46,16 @@ Tâche 2: afficher le nombre de points de vie
 Tâche 3: afficher le timer
 Tâche 4: afficher un message quand le partie est terminé, gagnée ou perdue
 
+Case ouverture :
+Tâche 1: faire une case spéciale qui retire une certaine case mur pour que le héro puisse passer
 
 Modifications du sprint 1:
 Tâche 1: retirer la clé du plateau quand le héros la récupère
 
 
-Remarque du sprint précédent:
-* mieux répartir le travail
-* ajouter beaucoup de commentaires pour aider les autres à comprendre ce qu'on fait
-* problèmes avec Git
 
 Répartition :
-Anaelle : modifs case point de vie & case clé + Vérification si tout marche + modifications
+Anaelle : modifs case point de vie & case clé+ case ouverture + Vérification si tout marche + modifications
 Thomas : graphisme héros/méchants & afficher timer, points de vie, message fin jeu
 Chloé : aquisition/pertes points de vie + Refaire diagramme de séquence 
 Eloise : déplacements méchants et collison avec héros (refaire une classe personnage)

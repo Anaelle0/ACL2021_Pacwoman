@@ -61,7 +61,7 @@ public class PacmanGame implements Game {
 	public static void AjoutCle(int abscisse, int ordonnee) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==4) {
 			NombreCle = NombreCle + 1;
-			System.out.println("Vous avez une clé");
+			System.out.println("Vous avez une cl�");
 
 		}
 	}
@@ -69,7 +69,7 @@ public class PacmanGame implements Game {
 		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
 		if (tempsEcoule > TempsMax) {
 			finJeu = true; //On a dépassé le temps maximal autorisé donc on a perdu
-			System.out.print("Partie perdue: temps dépassé");
+			System.out.print("Partie perdue: temps d�pass�");
 			return true;
 		}
 		else {
@@ -108,9 +108,8 @@ public class PacmanGame implements Game {
 	//verifier si le jeu est fini, c'est à dire qu'on est sur la case arrivée avec au moins une clé
 	
 	public static boolean verifArrivee (int abscisse, int ordonnee) {
-		
 		if (NombreCle>= 1 && Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==3){
-			System.out.println("Le jeu est gagné!");
+			System.out.println("Le jeu est gagn�!");
 			finJeu = true;
 			return true;
 		}
@@ -127,7 +126,7 @@ public class PacmanGame implements Game {
 
 	@Override
 	public boolean finJeu() {
-		if ( finJeu == true) {
+		if ( finJeu ==true) {
 			return true;
 		}
 		return false;
