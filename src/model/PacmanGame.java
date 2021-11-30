@@ -35,6 +35,7 @@ public class PacmanGame implements Game {
 	}
 	//Boolean signifiant la fin du jeu
 	static boolean finJeu = false;
+	public static boolean verifMonster;
 
 	//faire evoluer le jeu suite a une commande @param commande
 	@Override
@@ -58,13 +59,14 @@ public class PacmanGame implements Game {
 		return false;
 	}
 
-	public static void AjoutCle(int abscisse, int ordonnee) {
+	public static void ajoutCle(int abscisse, int ordonnee) {
 		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==4) {
 			NombreCle = NombreCle + 1;
 			System.out.println("Vous avez une cl�");
 
 		}
 	}
+		
 	public static boolean getTime(){
 		long tempsEcoule = System.currentTimeMillis() - tempsDepart;
 		if (tempsEcoule > TempsMax) {
@@ -104,9 +106,19 @@ public class PacmanGame implements Game {
 	}						// � enlever: la cl� du plateau
 	*/
 
-
-	//verifier si le jeu est fini, c'est à dire qu'on est sur la case arrivée avec au moins une clé
+// verifier si le heros a bien au moins une vie, sinon le jeu se finit
+	public static boolean verifVie(int abscisse, int ordonnee) {
+		if (Hero.getNombreVie()>0) {
+			return true;
+		}
+		else {
+			finJeu=true;
+			return false; 
+			}
+	}
 	
+	
+	//verifier si le jeu est fini, c'est à dire qu'on est sur la case arrivée avec au moins une clé
 	public static boolean verifArrivee (int abscisse, int ordonnee) {
 		if (NombreCle>= 1 && Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==3){
 			System.out.println("Le jeu est gagn�!");

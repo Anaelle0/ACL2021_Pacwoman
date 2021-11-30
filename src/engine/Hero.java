@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
+import model.PacmanGame;
 
 
 import model.PacmanGame;
@@ -17,7 +18,7 @@ import model.PacmanPainter;
 public class Hero extends Personnage{
 	private static int abscisse=1;
 	private static int ordonnee=1;
-	private static int nombredeVie=3;
+	private static int NombreVie=3;
 	/*
 	public static void move(Cmd commande) {
 		switch (commande) {
@@ -47,8 +48,14 @@ public class Hero extends Personnage{
 		}
 	
 	*/
-	public static int getPointdeVie() {
-		return nombredeVie;
+	
+// ajouter une vie au heros quand il passe sur la case "vie"	
+	public static int ajoutVie(int abscisse, int ordonnee) {
+		if (Integer.parseInt(PacmanPainter.getLabyrinthe()[abscisse][ordonnee])==5 && getNombreVie()<3) {
+			setNombreVie(getNombreVie() + 1);
+			System.out.println("Vous avez gagné une vie");
+		}
+		return getNombreVie();
 	}
 	/*
 	public static void changePos(int x,int y) {
@@ -58,6 +65,17 @@ public class Hero extends Personnage{
 	}
 	*/
 	public static void retireVie() {
+		if (PacmanGame.verifMonster == true) {
+			NombreVie=NombreVie-1;
+		}
+	}
+	
+	
+	public static int getNombreVie() {
+		return NombreVie;
+	}
+	public static void setNombreVie(int nombreVie) {
+		NombreVie = nombreVie;
 	}
 	
 	/*
